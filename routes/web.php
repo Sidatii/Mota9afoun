@@ -28,16 +28,16 @@ Route::get('/search', function (Request $request){
     dd($request->book . '' . $request->category);
 });
 
-// Route::get('/books', function(){
-//     return view('welcome', [
-//         'title' => 'Mota9afoun',
-//         'books' => Book::getall()
-//     ]);
-// });
+Route::get('/books', function(){
+    return view('books', [
+        'title' => 'Mota9afoun',
+        'books' => Book::all()
+    ]);
+});
 
-// Route::get('/books/{id}', function($id){
-//     return view('book', [
-//         'title' => 'Mota9afoun',
-//         'books' => Book::find($id)
-//     ]);
-// });
+Route::get('/books/{id}', function($id){
+    return view('book', [
+        'title' => 'Mota9afoun',
+        'books' => Book::find($id)
+    ]);
+});

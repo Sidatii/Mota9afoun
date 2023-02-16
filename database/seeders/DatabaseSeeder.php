@@ -14,17 +14,31 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory(10)->create();
-        
-        Book::create([
-            'name' => '1984',
-            'image' => '1984.jpeg',
-            'author' => 'Joerge orwell',
-            'published' => '1949',
-            'description' => 'lorem20 dsjkqbcjbqsnkjcbksqjbcjqsbb cqsbkjcbqskjbcsq csjqnkcjnsqkcn',
-            'tages' => 'Politics, society, future'
+        User::factory(5)->create();
+        Book::factory(5)->create();
 
-        ]);
+        
+        // Book::create([
+        //     'name' => '1984',
+        //     'image' => '1984.jpeg',
+        //     'author' => 'Joerge orwell',
+        //     'published' => '1949',
+        //     'description' => 'lorem20 dsjkqbcjbqsnkjcbksqjbcjqsbb cqsbkjcbqskjbcsq csjqnkcjnsqkcn',
+        //     'tags' => 'Politics, society, future'
+
+        // ]);
+
+        // Book::create([
+        //     'name' => 'Animal farm',
+        //     'image' => 'Animal_farm.jpeg',
+        //     'author' => 'Joerge orwell',
+        //     'published' => '1949',
+        //     'description' => 'lorem20 dsjkqbcjbqsnkjcbksqjbcjqsbb cqsbkjcbqskjbcsq csjqnkcjnsqkcn',
+        //     'tags' => 'Politics, society, future'
+
+        // ]);
+
+
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
