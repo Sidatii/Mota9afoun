@@ -18,7 +18,7 @@
                 </div>
                 <div class="relative mt-4">
                 <h3 class="text-sm font-medium text-gray-900"></h3>
-                <h2 class="mt-1  text-black text-center font-medium uppercase font-bold">{{$book->name}}</h2>
+                <h2 class="mt-1  text-black text-center uppercase font-bold">{{$book->name}}</h2>
                 <h4 class="mt-1 text-md text-center">Author: <strong>{{$book->author}}</strong></h4>
                 <h4 class="mt-1 text-sm text-gray-500 text-center">Year: {{$book->published}}</h4>
                 <div class="mt-1 text-sm text-gray-500 text-center container">tags: {{$book->tags}}</div>
@@ -37,12 +37,6 @@
             <!-- More products... -->
         </div>
     </div>
-</div>
-<h3>
-    <a href="/books/{{$book['id']}}">{{$book['name']}}</a>
-</h3>
-<h4>
-    {{$book['description']}}    
-</h4>    
+</div>    
 
 @endsection
