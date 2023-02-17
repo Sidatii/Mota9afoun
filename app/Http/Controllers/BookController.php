@@ -12,9 +12,12 @@ class BookController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(): Response
+    public function index()
     {
-        //
+        return view('books.index', [
+            'books' => Book::latest()->filter(request(['teg']))->get()
+            // This "latest" method orders data by the latest created, while filter() is a custom method that filters data by the search query.
+        ]);
     }
 
     /**
@@ -36,9 +39,11 @@ class BookController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Book $book): Response
+    public function show(Book $book): \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
     {
-        //
+        return view('books.show', [
+            'books' => $book
+        ]);
     }
 
     /**

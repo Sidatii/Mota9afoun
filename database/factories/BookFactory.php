@@ -22,6 +22,7 @@ class BookFactory extends Factory
             'author' => fake()->name(),
             'published' => fake()->year(),
             'description' => fake()->paragraph(5),
+            'link' => fake()->url(),
             'tags' => 'Politics, Society, Future'
         ];
     }

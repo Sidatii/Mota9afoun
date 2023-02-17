@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite('resources/css/app.css')
     <title>Mota9afoun</title>
-    {{-- @include('tailwind.js') --}}
 </head>
 <body>
     {{-- <nav class="bg-white shadow">
@@ -32,7 +31,7 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
                 </svg>
               </button>
-      
+
               <!-- Profile dropdown -->
               <div class="ml-3 relative">
                 <div>
@@ -41,10 +40,10 @@
                     <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
                   </button>
                 </div>
-      
+
                 <!--
                   Dropdown menu, show/hide based on menu state.
-      
+
                   Entering: "transition ease-out duration-200"
                     From: "transform opacity-0 scale-95"
                     To: "transform opacity-100 scale-100"
@@ -66,9 +65,9 @@
                 <span class="sr-only">Open main menu</span>
                 <!--
                   Icon when menu is closed.
-      
+
                   Heroicon name: outline/menu
-      
+
                   Menu open: "hidden", Menu closed: "block"
                 -->
                 <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -76,9 +75,9 @@
                 </svg>
                 <!--
                   Icon when menu is open.
-      
+
                   Heroicon name: outline/x
-      
+
                   Menu open: "block", Menu closed: "hidden"
                 -->
                 <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -88,7 +87,7 @@
             </div>
           </div>
         </div>
-      
+
         <!-- Mobile menu, show/hide based on menu state. -->
         <div class="sm:hidden" id="mobile-menu">
           <div class="pt-2 pb-3 space-y-1">
@@ -125,9 +124,13 @@
       </nav> --}}
       <section class="relative py-2 bg-[#517174]">
         <div class="flex items-center justify-between h-16 px-8 mx-auto max-w-7xl">
-    
-            <a href="#_" class="relative z-10 flex items-center w-auto text-2xl font-black leading-none text-gray-900 select-none">tails.</a>
-    
+
+            <div class="flex-shrink-0 flex items-center">
+                <img class="block lg:hidden h-8 w-auto" src="{{asset('/images/mota9afoun.png')}}" alt="">
+                <img class="hidden lg:block h-8 w-auto" src="{{asset('/images/mota9afoun.png')}}" alt="">
+            </div>
+            {{-- <a href="#_" class="relative z-10 flex items-center w-auto text-2xl font-black leading-none text-gray-900 select-none"><img src="{{asset('/images/mota9afoun.png')}}"></a> --}}
+
             <nav class="items-center justify-center hidden space-x-5 text-gray-200 md:flex lg:space-x-8">
                 <a href="#_" x-data="{ hover: false }" @mouseenter="hover = true" @mouseleave="hover = false" class="relative inline-block px-1 text-base font-bold text-black uppercase transition duration-150 ease hover:text-gray-900">
                     <span class="block">Home</span>
@@ -165,23 +168,23 @@
                         <svg class="w-auto h-full text-gray-900 fill-current" viewBox="0 0 84 6" xmlns="http://www.w3.org/2000/svg"><g stroke="none" stroke-width="1" fill-rule="evenodd"><g transform="translate(-8)" fill-rule="nonzero"><path d="M90.3.9c-1.8 0-2.8.7-3.6 1.4-.7.5-1.2.9-2.4.9s-1.7-.4-2.4-.9c-.8-.6-1.8-1.4-3.6-1.4s-2.8.7-3.6 1.4c-.7.5-1.2.9-2.4.9-1.1 0-1.7-.4-2.4-.9-.8-.6-1.8-1.4-3.6-1.4s-2.8.7-3.6 1.4c-.7.5-1.2.9-2.4.9s-1.7-.4-2.4-.9c-.8-.6-1.8-1.4-3.6-1.4s-2.8.7-3.6 1.4c-.7.5-1.2.9-2.4.9-1.1 0-1.7-.4-2.4-.9-.8-.6-1.8-1.4-3.6-1.4s-2.8.7-3.6 1.4c-.7.5-1.2.9-2.4.9-1.1 0-1.7-.4-2.4-.9-.8-.6-1.8-1.4-3.6-1.4s-2.8.7-3.6 1.4c-.7.5-1.2.9-2.4.9s-1.7-.4-2.4-.9c-.8-.6-1.8-1.4-3.6-1.4s-2.8.7-3.6 1.4c-.7.5-1.2.9-2.4.9-1.1 0-1.7-.4-2.4-.9-.8-.6-1.9 1-1.2 1.5.8.6 1.8 1.4 3.6 1.4s2.8-.7 3.6-1.4c.7-.5 1.2-.9 2.4-.9s1.7.4 2.4.9c.8.6 1.8 1.4 3.6 1.4s2.8-.7 3.6-1.4c.7-.5 1.2-.9 2.4-.9 1.1 0 1.7.4 2.4.9.8.6 1.8 1.4 3.6 1.4s2.8-.7 3.6-1.4c.7-.5 1.2-.9 2.4-.9 1.1 0 1.7.4 2.4.9.8.6 1.8 1.4 3.6 1.4s2.8-.7 3.6-1.4c.7-.5 1.2-.9 2.4-.9s1.7.4 2.4.9c.8.6 1.8 1.4 3.6 1.4s2.8-.7 3.6-1.4c.7-.5 1.2-.9 2.4-.9 1.1 0 1.7.4 2.4.9.8.6 1.8 1.4 3.6 1.4s2.8-.7 3.6-1.4c.7-.5 1.2-.9 2.4-.9s1.7.4 2.4.9c.8.6 1.8 1.4 3.6 1.4s2.8-.7 3.6-1.4c.7-.5 1.2-.9 2.4-.9.6 0 1-.4 1-1s-.5-1-1-1z"></path></g></g></svg>
                     </span>
                 </a>
-    
+
                 <a href="#_" class="relative h-6 group">
                     <span class="relative z-10 px-5 py-2 font-bold leading-tight text-black bg-white border-4 border-gray-900 rounded-lg group-hover:bg-yellow-100">Signup</span>
                     <span class="absolute top-0 right-0 w-full h-10 -mr-1 bg-black rounded-lg"></span>
                 </a>
-    
+
             </nav>
-    
+
             <!-- Mobile Button -->
             <div class="flex items-center justify-center h-full text-black md:hidden">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"></path></svg>
             </div>
-    
+
         </div>
     </section>
     {{-- Here we render our content/different pages --}}
-    @yield('content')
+    {{$slot}}
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.8.0/alpine.js"></script>
 </body>

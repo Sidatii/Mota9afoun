@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\BookController;
+use App\Models\Book;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Models\Book;
 use Illuminate\Database\Eloquent\Model;
 
 /*
@@ -15,29 +17,18 @@ use Illuminate\Database\Eloquent\Model;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
 Route::get('/', function () {
-    return ;
+    return view('welcome');
 });
 
-Route::get('/books/{id}', function ($id){
-    return response('books' . $id);
-})->where('id', '[0-9]+');
+Route::get('/books', [BookController::class, 'index']);
 
-Route::get('/search', function (Request $request){
-    dd($request->book . '' . $request->category);
-});
+Route::get('/books/{book}', [BookController::class, 'show']);
 
-Route::get('/books', function(){
-    return view('books', [
-        'title' => 'Mota9afoun',
-        'books' => Book::all()
-    ]);
-});
+Route::get('/categories', [BookController::class, 'index']);
 
-Route::get('/books/{id}', function($id){
-    return view('book', [
-        'title' => 'Mota9afoun',
-        'books' => Book::find($id)
-    ]);
-});
+Route::get('/categories/{id}', function($id) {
+     return view('category', [
+         'categories' => Category::find($id)
+     ]);
+ });
