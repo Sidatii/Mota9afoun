@@ -39,9 +39,14 @@ class BookController extends Controller
             'author' => 'required',
             'year' => 'required',
             'description' => 'required',
+            'link' => 'required',
             'tags' => 'required',
             'image' => 'required',
         ]);
+
+        Book::create($form);
+
+        return redirect('/books')->with('success', 'Book added successfully!');
     }
 
     /**
