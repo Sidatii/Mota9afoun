@@ -21,9 +21,37 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Show all books
+
 Route::get('/books', [BookController::class, 'index']);
 
+
+// Show create book form
+
+Route::get('/books/create', [BookController::class, 'create']);
+
+
+// Store book
+
+Route::post('/books', [BookController::class, 'store']);
+
+// Show edit book form
+
+Route::get('/books/{book}/edit', [BookController::class, 'edit']);
+
+// Update book
+
+Route::put('/books/{book}', [BookController::class, 'update']);
+
+// Delete book
+
+Route::delete('/books/{book}', [BookController::class, 'destroy']);
+
+// Show single book
+
 Route::get('/books/{book}', [BookController::class, 'show']);
+
+// Show all categories
 
 Route::get('/categories', [BookController::class, 'index']);
 

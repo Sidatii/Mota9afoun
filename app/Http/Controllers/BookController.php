@@ -6,6 +6,7 @@ use App\Models\Book;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Validation\Rule;
 
 class BookController extends Controller
 {
@@ -15,7 +16,7 @@ class BookController extends Controller
     public function index()
     {
         return view('books.index', [
-            'books' => Book::latest()->filter(request(['teg']))->get()
+            'books' => Book::latest()->filter(request(['tag', 'search']))->get()
             // This "latest" method orders data by the latest created, while filter() is a custom method that filters data by the search query.
         ]);
     }
@@ -23,17 +24,24 @@ class BookController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(): Response
+    public function create()
     {
-        //
+        return view('books.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request)
     {
-        //
+        $form = $request->validate([
+            'name' => ['required', Rule::unique('book', 'name')],
+            'author' => 'required',
+            'year' => 'required',
+            'description' => 'required',
+            'tags' => 'required',
+            'image' => 'required',
+        ]);
     }
 
     /**
