@@ -16,8 +16,8 @@ class BookController extends Controller
     public function index()
     {
         return view('books.index', [
-            'books' => Book::latest()->filter(request(['tag', 'search']))->get()
-            // This "latest" method orders data by the latest created, while filter() is a custom method that filters data by the search query.
+            'books' => Book::latest()->filter(request(['tag', 'search']))->paginate(10)
+            // This "latest" method orders data by the latest created, while filter() is a custom method that filters data by the search query. Furthermore, the paginate() method is used to paginate the data.
         ]);
     }
 
@@ -32,17 +32,22 @@ class BookController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request) : RedirectResponse
     {
+//        dd($request->all());
         $form = $request->validate([
             'name' => ['required', Rule::unique('book', 'name')],
             'author' => 'required',
-            'year' => 'required',
+            'published' => 'required',
             'description' => 'required',
             'link' => 'required',
             'tags' => 'required',
             'image' => 'required',
         ]);
+
+        if ($request->hasFile('image')){
+            $form['image'] = $request->file('image')->store('images', 'public');
+        }
 
         Book::create($form);
 

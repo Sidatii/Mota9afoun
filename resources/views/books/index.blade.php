@@ -16,6 +16,9 @@
                     <h3 class="text-xl font-meduim text-gray-900 sm:text-xl text-center">No books found</h3>
                 @endunless
         </div>
+        <div class="mt-8 p-4 flex justify-center ">
+            {{ $books->links() }}
+        </div>
     </div>
 
 </x-layout>

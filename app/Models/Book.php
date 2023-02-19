@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 class Book extends Model
 {
     protected $table = "book";
-    protected $fillable = ['name', 'author', 'year', 'description', 'link', 'tags', 'image'];
+//    protected $fillable = ['name', 'author', 'published', 'description', 'link', 'tags', 'image'];
     use HasFactory;
 
     // This is a custom method (scopeFilter) that filters data by the tag sent through the request.

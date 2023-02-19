@@ -8,7 +8,7 @@
             <form method="POST" action="/books" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-6">
-                    <label for="name" class="inline-block text-lg mb-2">Book Name</label>
+                    <label for="name" class="inline-block text-md mb-2">Book Name</label>
                     <input type="text" class="border border-gray-200 rounded p-2 w-full" name="name"
                            value="{{old('name')}}" />
 
@@ -18,7 +18,7 @@
                 </div>
 
                 <div class="mb-6">
-                    <label for="author" class="inline-block text-lg mb-2">Author Name</label>
+                    <label for="author" class="inline-block text-md mb-2">Author Name</label>
                     <input type="text" class="border border-gray-200 rounded p-2 w-full" name="author"
                            placeholder="Example: Joerg Orwell, Tolstoy ..." value="{{old('author')}}" />
 
@@ -28,8 +28,8 @@
                 </div>
 
                 <div class="mb-6">
-                    <label for="published" class="inline-block text-lg mb-2">Published</label>
-                    <input type="text" class="border border-gray-200 rounded p-2 w-full" name="published"
+                    <label for="published" class="inline-block text-md mb-2">Publishing year</label>
+                    <input type="number" class="border border-gray-200 rounded p-2 w-full" name="published"
                            placeholder="Year" value="{{old('published')}}" />
 
                     @error('published')
@@ -38,7 +38,7 @@
                 </div>
 
                 <div class="mb-6">
-                    <label for="link" class="inline-block text-lg mb-2">
+                    <label for="link" class="inline-block text-md mb-2">
                         Book URL
                     </label>
                     <input type="text" class="border border-gray-200 rounded p-2 w-full" name="link"
@@ -50,7 +50,7 @@
                 </div>
 
                 <div class="mb-6">
-                    <label for="tags" class="inline-block text-lg mb-2">
+                    <label for="tags" class="inline-block text-md mb-2">
                         Tags (Comma Separated)
                     </label>
                     <input type="text" class="border border-gray-200 rounded p-2 w-full" name="tags"
@@ -62,7 +62,7 @@
                 </div>
 
                 <div class="mb-6">
-                    <label for="image" class="inline-block text-lg mb-2">
+                    <label for="image" class="inline-block text-md mb-2">
                         Book image
                     </label>
                     <input type="file" class="border border-gray-200 rounded p-2 w-full" name="image" />
@@ -73,7 +73,7 @@
                 </div>
 
                 <div class="mb-6">
-                    <label for="description" class="inline-block text-lg mb-2">
+                    <label for="description" class="inline-block text-md mb-2">
                         Book Description
                     </label>
                     <textarea class="border border-gray-200 rounded p-2 w-full" name="description" rows="10"
