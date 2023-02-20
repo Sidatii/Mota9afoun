@@ -1,11 +1,11 @@
 <x-layout>
-    <div class="p-10 max-w-lg mx-auto mt-24">
+    <div class="p-10 max-w-lg mx-auto ">
         <header class="text-center">
             <h2 class="text-2xl font-bold uppercase mb-1">Register</h2>
-            <p class="mb-4">Create an account to post gigs</p>
+            <p class="mb-4">Create an account to Access our library</p>
         </header>
 
-        <form method="POST" action="/users">
+        <form method="POST" action="/register">
             @csrf
             <div class="mb-6">
                 <label for="name" class="inline-block text-lg mb-2"> Name </label>
@@ -49,13 +49,13 @@
                 @enderror
             </div>
 
-            <div class="mb-6">
-                <button type="submit" class="bg-laravel text-white rounded py-2 px-4 hover:bg-black">
+            <div class="mb-4">
+                <button type="submit" class="bg-[#FFB84C] text-white rounded py-2 px-4 hover:bg-black">
                     Sign Up
                 </button>
             </div>
 
-            <div class="mt-8">
+            <div class="">
                 <p>
                     Already have an account?
                     <a href="/login" class="text-laravel">Login</a>

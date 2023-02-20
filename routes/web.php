@@ -93,3 +93,12 @@ Route::get('/register', [UserController::class, 'create']);
 // Register user
 
 Route::post('/register', [UserController::class, 'store']);
+
+// Show login form
+
+Route::get('/login', [UserController::class, 'create']);
+
+// Login user
+
+Route::post('/login', [UserController::class, 'store']);
+
