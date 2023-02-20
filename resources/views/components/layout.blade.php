@@ -162,7 +162,7 @@
                     </span>
                 </a>
                 <div class="w-0 h-5 border border-r border-black opacity-25"></div>
-                <a href="#_" x-data="{ hover: false }" @mouseenter="hover = true" @mouseleave="hover = false" class="relative inline-block px-0.5 text-base font-bold text-black uppercase transition duration-150 ease hover:text-gray-900">
+                <a href="/login" x-data="{ hover: false }" @mouseenter="hover = true" @mouseleave="hover = false" class="relative inline-block px-0.5 text-base font-bold text-black uppercase transition duration-150 ease hover:text-gray-900">
                     <span class="block">Login</span>
                     <span class="absolute bottom-0 left-0 inline-block w-full h-2 -mb-2 overflow-hidden">
                         <span x-show="!hover" class="absolute inset-0 inline-block w-full h-full transform translate-x-0 bg-[#517174]" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="-translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transition ease-out duration-300" x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-full"></span>
@@ -170,7 +170,7 @@
                     </span>
                 </a>
 
-                <a href="#_" class="relative h-6 group">
+                <a href="/register" class="relative h-6 group">
                     <span class="relative z-10 px-5 py-2 font-bold leading-tight text-black bg-white border-4 border-gray-900 rounded-lg group-hover:bg-yellow-100">Signup</span>
                     <span class="absolute top-0 right-0 w-full h-10 -mr-1 bg-black rounded-lg"></span>
                 </a>
@@ -190,6 +190,6 @@
 
 {{--    <script src="//unpkg.com/alpinejs" defer></script>--}}
 {{--    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>--}}
-    <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
+    <script src="../users/to/flowbite/dist/flowbite.min.js"></script>
 </body>
 </html>

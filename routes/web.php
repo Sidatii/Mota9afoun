@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\UserController;
 use App\Models\Book;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -60,3 +61,35 @@ Route::get('/categories/{id}', function($id) {
          'categories' => Category::find($id)
      ]);
  });
+
+// Show create category form
+
+Route::get('/categories/create', [BookController::class, 'create']);
+
+// Store category
+
+Route::post('/categories', [BookController::class, 'store']);
+
+// Show edit category form
+
+Route::get('/categories/{category}/edit', [BookController::class, 'edit']);
+
+// Update category
+
+Route::put('/categories/{category}', [BookController::class, 'update']);
+
+// Delete category
+
+Route::delete('/categories/{category}', [BookController::class, 'destroy']);
+
+// Show single category
+
+Route::get('/categories/{category}', [BookController::class, 'show']);
+
+// Show register form
+
+Route::get('/register', [UserController::class, 'create']);
+
+// Register user
+
+Route::post('/register', [UserController::class, 'store']);

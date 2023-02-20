@@ -67,9 +67,12 @@ class BookController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Book $book): Response
+    public function edit(Book $book)
     {
-        //
+//        dd($book->name);
+        return view('books.edit', [
+            'books' => $book
+        ]);
     }
 
     /**
@@ -77,7 +80,23 @@ class BookController extends Controller
      */
     public function update(Request $request, Book $book): RedirectResponse
     {
-        //
+        $form = $request->validate([
+            'name' => ['required'],
+            'author' => 'required',
+            'published' => 'required',
+            'description' => 'required',
+            'link' => 'required',
+            'tags' => 'required',
+            'image' => '',
+        ]);
+
+        if ($request->hasFile('image')){
+            $form['image'] = $request->file('image')->store('images', 'public');
+        }
+
+        $book->update($form);
+
+        return redirect('/books')->with('success', 'Book updated successfully!');
     }
 
     /**
@@ -85,6 +104,8 @@ class BookController extends Controller
      */
     public function destroy(Book $book): RedirectResponse
     {
-        //
+        $book->delete();
+
+        return redirect('/books')->with('success', 'Book deleted successfully!');
     }
 }

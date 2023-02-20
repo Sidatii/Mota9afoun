@@ -10,7 +10,7 @@
                 <!-- Product image -->
                 <div class="lg:row-end-1 lg:col-span-4">
                     <div class="aspect-w-4 aspect-h-3 rounded-lg bg-gray-100 overflow-hidden">
-                        <img src="{{asset('images/'.$books->image)}}"
+                        <img src="{{$books->image ? asset('/storage/'.$books->image) : asset('/images/the.png')}}"
                              alt="Sample of 30 icons with friendly and fun details in outline, filled, and brand color styles."
                              class="object-center object-contain">
                     </div>
@@ -183,5 +183,13 @@
             </div>
         </div>
     </div>
+    <div>
+        <a href="/books/{{$books->id}}/edit"> <button type="button" class="text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Edit</button> </a>
+        <form action="/books/{{$books->id}}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Delete</button>
+        </form>
+    </div>
 
-</x-layout>>
+</x-layout>
