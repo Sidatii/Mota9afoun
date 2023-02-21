@@ -28,9 +28,7 @@ class BookController extends Controller
      */
     public function create()
     {
-        return view('books.create', [
-            'categories' => Category::all(),
-        ]);
+        return view('books.create');
     }
 
     /**

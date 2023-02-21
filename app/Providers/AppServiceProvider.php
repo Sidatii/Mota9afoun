@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\View\Components\Select;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -20,6 +22,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        Blade::component('select', Select::class);
         Model::unguard();
     }
 }
