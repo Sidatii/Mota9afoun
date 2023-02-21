@@ -71,6 +71,12 @@
                     <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                     @enderror
                 </div>
+{{--                @php--}}
+{{--                    var_dump($options);--}}
+{{--                    die();--}}
+{{--                @endphp--}}
+
+{{--                <x-select :categories="$categories"></x-select>--}}
 
                 <div class="mb-6">
                     <label for="description" class="inline-block text-md mb-2">

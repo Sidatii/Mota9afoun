@@ -162,6 +162,38 @@
                     </span>
                 </a>
                 <div class="w-0 h-5 border border-r border-black opacity-25"></div>
+                @auth
+                <div class="flex md:order-2 gap-2">
+                    <div class="">
+                        <img id="avatarButton" type="button" data-dropdown-toggle="userDropdown" data-dropdown-placement="bottom-start" class="w-10 h-10 rounded-full cursor-pointer shadow-md" src="" alt="User dropdown">
+
+                        <!-- Dropdown menu -->
+                        <div id="userDropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow">
+                            <div class="py-3 px-4 text-sm text-gray-900 ">
+                                <div>{{auth()->user()->name}}</div>
+                            </div>
+                            <ul class="py-1 text-sm text-gray-700" aria-labelledby="avatarButton">
+
+                                <li>
+                                    <a href="/books" class="py-2 px-4 hover:bg-gray-100 ">Manage</a>
+                                <li>
+                                    <a href="#" class="py-2 px-4 hover:bg-gray-100 ">My readings</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 ">Settings</a>
+                                </li>
+                            </ul>
+                            <div class="py-1">
+                                <form method="POST" action="/logout">
+                                    @csrf
+                                    <button type="submit" class="block w-full text-left py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Sign out</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    @else
                 <a href="/login" x-data="{ hover: false }" @mouseenter="hover = true" @mouseleave="hover = false" class="relative inline-block px-0.5 text-base font-bold text-black uppercase transition duration-150 ease hover:text-gray-900">
                     <span class="block">Login</span>
                     <span class="absolute bottom-0 left-0 inline-block w-full h-2 -mb-2 overflow-hidden">
@@ -174,6 +206,7 @@
                     <span class="relative z-10 px-5 py-2 font-bold leading-tight text-black bg-white border-4 border-gray-900 rounded-lg group-hover:bg-yellow-100">Signup</span>
                     <span class="absolute top-0 right-0 w-full h-10 -mr-1 bg-black rounded-lg"></span>
                 </a>
+                @endauth
 
             </nav>
 

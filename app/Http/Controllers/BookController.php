@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Category;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -16,8 +17,9 @@ class BookController extends Controller
     public function index()
     {
         return view('books.index', [
-            'books' => Book::latest()->filter(request(['tag', 'search']))->paginate(10)
+            'books' => Book::latest()->filter(request(['tag', 'search']))->paginate(10),
             // This "latest" method orders data by the latest created, while filter() is a custom method that filters data by the search query. Furthermore, the paginate() method is used to paginate the data.
+            'categories' => Category::all(),
         ]);
     }
 
@@ -26,7 +28,9 @@ class BookController extends Controller
      */
     public function create()
     {
-        return view('books.create');
+        return view('books.create', [
+            'categories' => Category::all(),
+        ]);
     }
 
     /**
@@ -87,12 +91,15 @@ class BookController extends Controller
             'description' => 'required',
             'link' => 'required',
             'tags' => 'required',
+            'category_id' => 'required',
             'image' => '',
         ]);
 
         if ($request->hasFile('image')){
             $form['image'] = $request->file('image')->store('images', 'public');
         }
+
+
 
         $book->update($form);
 

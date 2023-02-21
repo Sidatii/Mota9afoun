@@ -32,6 +32,12 @@ class Book extends Model
         );
     }
 
+    // Relationship with Category model
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
 
     // fu
 }

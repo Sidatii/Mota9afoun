@@ -29,24 +29,24 @@ Route::get('/books', [BookController::class, 'index']);
 
 // Show create book form
 
-Route::get('/books/create', [BookController::class, 'create']);
+Route::get('/books/create', [BookController::class, 'create'])->middleware('auth')->middleware('auth');
 
 
 // Store book
 
-Route::post('/books', [BookController::class, 'store']);
+Route::post('/books', [BookController::class, 'store'])->middleware('auth');
 
 // Show edit book form
 
-Route::get('/books/{book}/edit', [BookController::class, 'edit']);
+Route::get('/books/{book}/edit', [BookController::class, 'edit'])->middleware('auth');
 
 // Update book
 
-Route::put('/books/{book}', [BookController::class, 'update']);
+Route::put('/books/{book}', [BookController::class, 'update'])->middleware('auth');
 
 // Delete book
 
-Route::delete('/books/{book}', [BookController::class, 'destroy']);
+Route::delete('/books/{book}', [BookController::class, 'destroy'])->middleware('auth');
 
 // Show single book
 
@@ -64,23 +64,23 @@ Route::get('/categories/{id}', function($id) {
 
 // Show create category form
 
-Route::get('/categories/create', [BookController::class, 'create']);
+Route::get('/categories/create', [BookController::class, 'create'])->middleware('auth');
 
 // Store category
 
-Route::post('/categories', [BookController::class, 'store']);
+Route::post('/categories', [BookController::class, 'store'])->middleware('auth');
 
 // Show edit category form
 
-Route::get('/categories/{category}/edit', [BookController::class, 'edit']);
+Route::get('/categories/{category}/edit', [BookController::class, 'edit'])->middleware('auth');
 
 // Update category
 
-Route::put('/categories/{category}', [BookController::class, 'update']);
+Route::put('/categories/{category}', [BookController::class, 'update'])->middleware('auth');
 
 // Delete category
 
-Route::delete('/categories/{category}', [BookController::class, 'destroy']);
+Route::delete('/categories/{category}', [BookController::class, 'destroy'])->middleware('auth');
 
 // Show single category
 
@@ -88,7 +88,7 @@ Route::get('/categories/{category}', [BookController::class, 'show']);
 
 // Show register form
 
-Route::get('/register', [UserController::class, 'create']);
+Route::get('/register', [UserController::class, 'create'])->middleware('guest');
 
 // Register user
 
@@ -96,9 +96,13 @@ Route::post('/register', [UserController::class, 'store']);
 
 // Show login form
 
-Route::get('/login', [UserController::class, 'create']);
+Route::get('/login', [UserController::class, 'loginForm'])->name('login')->middleware('guest');
 
 // Login user
 
-Route::post('/login', [UserController::class, 'store']);
+Route::post('/login', [UserController::class, 'authenticate'])->middleware('guest');
+
+// Logout user
+
+Route::post('/logout', [UserController::class, 'logout'])->middleware('auth');
 

@@ -12,4 +12,10 @@ class Category extends Model
 {
     protected $table = "category";
     use HasFactory;
+
+    // Relationship with Book model
+    public function books()
+    {
+        return $this->hasMany(Book::class);
+    }
 }
