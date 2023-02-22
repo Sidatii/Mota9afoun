@@ -52,6 +52,10 @@ Route::delete('/books/{book}', [BookController::class, 'destroy'])->middleware('
 
 Route::get('/books/{book}', [BookController::class, 'show']);
 
+// Manage books
+
+Route::get('/manage', [BookController::class, 'manage'])->middleware('auth');
+
 // Show all categories
 
 Route::get('/categories', [BookController::class, 'index']);
@@ -105,4 +109,34 @@ Route::post('/login', [UserController::class, 'authenticate'])->middleware('gues
 // Logout user
 
 Route::post('/logout', [UserController::class, 'logout'])->middleware('auth');
+
+// Show all authors
+
+Route::get('/authors', [BookController::class, 'index']);
+
+// Show create author form
+
+Route::get('/authors/create', [BookController::class, 'create'])->middleware('auth');
+
+// Store author
+
+Route::post('/authors', [BookController::class, 'store'])->middleware('auth');
+
+// Show edit author form
+
+Route::get('/authors/{author}/edit', [BookController::class, 'edit'])->middleware('auth');
+
+// Update author
+
+Route::put('/authors/{author}', [BookController::class, 'update'])->middleware('auth');
+
+// Delete author
+
+Route::delete('/authors/{author}', [BookController::class, 'destroy'])->middleware('auth');
+
+// Show single author
+
+Route::get('/authors/{author}', [BookController::class, 'show']);
+
+
 
