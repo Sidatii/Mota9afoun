@@ -11,6 +11,7 @@ use Illuminate\Validation\Rule;
 
 class BookController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      */

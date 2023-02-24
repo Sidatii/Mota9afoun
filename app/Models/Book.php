@@ -28,6 +28,8 @@ class Book extends Model
                 $query->where('name', 'like', '%' . request('search') . '%')
                 ->orWhere('author', 'like', '%' . request('search') . '%')
                     ->orWhere('description', 'like', '%' . request('search') . '%')
+                    ->orWhere('published', 'like', '%' . request('search') . '%')
+
         )
         );
     }
