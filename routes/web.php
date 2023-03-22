@@ -144,3 +144,5 @@ Route::get('/authors/{author}', [BookController::class, 'show']);
 // modify profile
 
 Route::get('/profile', [UserController::class, 'profile'])->middleware('auth');
+
+Route::post('/profile', [UserController::class, 'update'])->middleware('auth');
