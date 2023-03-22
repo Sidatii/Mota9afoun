@@ -13,8 +13,8 @@
     <nav class="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
         <div class="flex flex-wrap justify-between items-center">
             <div class="flex justify-start items-center">
-                <a href="https://flowbite.com" class="flex mr-4">
-                    <img src="https://flowbite.s3.amazonaws.com/logo.svg" class="mr-3 h-8" alt="FlowBite Logo"/>
+                <a href="/" class="flex mr-4">
+                    <img src="{{asset('./images/mota9afoun.png')}}" class="mr-3 h-8" alt="FlowBite Logo"/>
                 </a>
             </div>
             <nav class="items-center justify-center hidden space-x-5 text-gray-200 md:flex lg:space-x-8">
