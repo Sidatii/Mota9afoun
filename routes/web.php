@@ -143,6 +143,10 @@ Route::get('/authors/{author}', [BookController::class, 'show']);
 
 // modify profile
 
-Route::get('/profile', [UserController::class, 'profile'])->middleware('auth');
+Route::get('/profile', [UserController::class, 'profile'])->middleware('auth', 'active_user');
 
-Route::post('/profile', [UserController::class, 'update'])->middleware('auth');
+Route::post('/profile', [UserController::class, 'update'])->middleware('auth', 'active_user');
+
+// destroy profile
+
+Route::delete('/profile', [UserController::class, 'destroy'])->middleware('auth', 'active_user');

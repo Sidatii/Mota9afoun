@@ -91,7 +91,7 @@
             </div>
 
             <div class="mb-6">
-                <button class="bg-[#FFB84C] text-white rounded py-2 px-4">
+                <button type="submit" class="bg-[#FFB84C] text-white rounded py-2 px-4">
                     Update Book
                 </button>
 

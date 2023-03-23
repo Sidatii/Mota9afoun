@@ -130,7 +130,7 @@
                                         <a href="#" class="py-2 px-4 hover:bg-gray-100 ">My readings</a>
                                     </li>
                                     <li>
-                                        <a href="#" class="block py-2 px-4 hover:bg-gray-100 ">Settings</a>
+                                        <a href="/profile" class="block py-2 px-4 hover:bg-gray-100 ">Settings</a>
                                     </li>
                                 </ul>
                                 <div class="py-1">
@@ -172,9 +172,6 @@
 {{$slot}}
 <x-flash-message/>
 
-{{--    <script src="//unpkg.com/alpinejs" defer></script>--}}
-{{--    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>--}}
-{{--    <script src="../users/to/flowbite/dist/flowbite.min.js"></script>--}}
 <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
 </body>
 </html>

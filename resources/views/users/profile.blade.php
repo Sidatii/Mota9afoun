@@ -56,12 +56,15 @@
                     <button type="submit" class="bg-[#FFB84C] text-white rounded py-2 px-4 hover:bg-black">
                         Edit Profile
                     </button>
-                    <button type="submit" class="bg-[#FFB84C] text-white rounded py-2 px-4 hover:bg-black">
-                        Delete Profile
-                    </button>
                 </div>
 
 
+            </form>
+            <form method="DELETE" action="/profile">
+                @csrf
+                <button type="submit" class="bg-red-700 text-white rounded py-2 px-4 hover:bg-red-800">
+                    Delete Profile
+                </button>
             </form>
         @endauth
     </div>
