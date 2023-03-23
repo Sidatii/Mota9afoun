@@ -45,7 +45,7 @@ Route::post('/login', [UserController::class, 'authenticate'])->middleware('gues
 //##################################################################################################
 Route::group(['middleware' => ['auth', 'active_user']], function () {
 // Logout user
-    Route::post('/logout', [UserController::class, 'logout'])->middleware('auth');
+    Route::post('/logout', [UserController::class, 'logout']);
 // Show create category form
     Route::get('/categories/create', [BookController::class, 'create']);
 // Store category
