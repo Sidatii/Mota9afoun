@@ -7,6 +7,7 @@
 
             <form method="POST" action="/profile">
                 @csrf
+                @method('POST')
                 <div class="mb-6">
                     <label for="name" class="inline-block text-lg mb-2"> Name </label>
                     <input type="text" class="border border-gray-200 rounded p-2 w-full" name="name"
@@ -57,11 +58,11 @@
                         Edit Profile
                     </button>
                 </div>
-
-
             </form>
-            <form method="DELETE" action="/profile">
+
+            <form method="POST" action="/profile">
                 @csrf
+                @method('PUT')
                 <button type="submit" class="bg-red-700 text-white rounded py-2 px-4 hover:bg-red-800">
                     Delete Profile
                 </button>
