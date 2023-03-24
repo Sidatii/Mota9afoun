@@ -72,6 +72,10 @@ Route::group(['middleware' => ['auth', 'active_user']], function () {
     Route::post('/profile', [UserController::class, 'update']);
 // Block profile
     Route::put('/profile', [UserController::class, 'destroy']);
+// Add book to favorite
+
 // Manage books
-    Route::get('/manage', [BookController::class, 'manage']);
+    Route::get('/manage', [BookController::class, 'manage'])->middleware('admin');
+// Show all users
+    Route::get('/users', [UserController::class, 'index'])->middleware('admin');
 });
