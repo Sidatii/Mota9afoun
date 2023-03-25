@@ -12,17 +12,21 @@ class CategoryController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(): Response
+    public function index(): \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
     {
-        //
+         return view('categories.index', [
+             'categories' => Category::all(),
+         ]);
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create(): Response
+    public function create(): \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
     {
-        //
+        // Show the form for creating a new category
+
+        return view('categories.create');
     }
 
     /**
@@ -30,23 +34,37 @@ class CategoryController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        //
+        // Store a newly created category in storage
+
+        $category = new Category();
+        $category->name = $request->name;
+        $category->save();
+
+        return redirect()->to('/categories');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Category $category): Response
+    public function show(Category $category): \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
     {
-        //
+        // Display the specified category
+
+        return view('categories.show', [
+            'category' => $category,
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Category $category): Response
+    public function edit(Category $category): \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
     {
-        //
+        // Show the form for editing the specified category
+
+        return view('categories.edit', [
+            'category' => $category,
+        ]);
     }
 
     /**
@@ -54,7 +72,12 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category): RedirectResponse
     {
-        //
+        // Update the specified category in storage
+
+        $category->name = $request->name;
+        $category->save();
+
+        return redirect()->to('/categories');
     }
 
     /**
@@ -62,6 +85,10 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category): RedirectResponse
     {
-        //
+        // Remove the specified category from storage
+
+        $category->delete();
+
+        return redirect()->to('/categories');
     }
 }

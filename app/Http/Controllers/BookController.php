@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use App\Models\Category;
+use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -29,6 +30,7 @@ class BookController extends Controller
      */
     public function create()
     {
+//        dd('create');
         return view('books.create');
     }
 
@@ -81,25 +83,22 @@ class BookController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Book $book): RedirectResponse
+    public function update(Request $request, Book $book)
     {
         $form = $request->validate([
-            'name' => ['required'],
-            'author' => 'required',
-            'published' => 'required',
-            'description' => 'required',
-            'link' => 'required',
-            'tags' => 'required',
-            'category_id' => 'required',
+            'name' => '',
+            'author' => '',
+            'published' => '',
+            'description' => '',
+            'link' => '',
+            'tags' => '',
+            'category_id' => '',
             'image' => '',
         ]);
 
         if ($request->hasFile('image')){
             $form['image'] = $request->file('image')->store('images', 'public');
         }
-
-
-
         $book->update($form);
 
         return redirect('/books')->with('success', 'Book updated successfully!');
@@ -107,12 +106,13 @@ class BookController extends Controller
 
     /**
      * Remove the specified resource from storage.
+     * @throws Exception
      */
     public function destroy(Book $book): RedirectResponse
     {
-        $book->delete();
+        $book->archive();
 
-        return redirect('/books')->with('success', 'Book deleted successfully!');
+        return redirect('/books')->with('success', 'Book archived successfully!');
     }
 
     public function manage(){

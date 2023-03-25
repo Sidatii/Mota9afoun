@@ -77,19 +77,38 @@
                     <p class="text-gray-500 my-6">{{$books->description}}</p>
                     <x-book-tag :tags="$books->tags"/>
 
-                    <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2">
-                        <button type="button"
-                                class="w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500">
-                            Read
-                        </button>
-                        <a href="#">
-                            <button type="button"
-                                    class="w-full bg-indigo-50 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-indigo-700 hover:bg-indigo-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500">
-                                Add to favourites
-                            </button>
-                        </a>
-                    </div>
+                    @if(auth()->user()->is_admin)
+                        <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2">
+                            <a href="/books/{{$books->id}}/edit">
+                                <button type="button"
+                                        class="w-full bg-green-700 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-igreen-700">
+                                    Edit
+                                </button>
+                            </a>
+                            <form action="/books/{{$books->id}}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit"
+                                        class="w-full bg-red-700 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-bg-red-700">
+                                    Delete
+                                </button>
+                            </form>
+                        </div>
 
+                    @else
+                        <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2">
+                            <button type="button"
+                                    class="w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500">
+                                Read
+                            </button>
+                            <a href="#">
+                                <button type="button"
+                                        class="w-full bg-indigo-50 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-indigo-700 hover:bg-indigo-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500">
+                                    Add to favourites
+                                </button>
+                            </a>
+                        </div>
+                    @endif
                 </div>
 
                 <div class="w-full max-w-2xl mx-auto mt-16 lg:max-w-none lg:mt-0 lg:col-span-4">
@@ -182,14 +201,6 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div>
-        <a href="/books/{{$books->id}}/edit"> <button type="button" class="text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Edit</button> </a>
-        <form action="/books/{{$books->id}}" method="POST">
-            @csrf
-            @method('DELETE')
-            <button type="submit" class="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Delete</button>
-        </form>
     </div>
 
 </x-layout>

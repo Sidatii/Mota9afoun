@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use LaravelArchivable\Archivable;
 
 /**
  * @method static latest()
@@ -13,6 +14,7 @@ class Book extends Model
     protected $table = "book";
 //    protected $fillable = ['name', 'author', 'published', 'description', 'link', 'tags', 'image'];
     use HasFactory;
+    use Archivable;
 
     // This is a custom method (scopeFilter) that filters data by the tag sent through the request.
     public function scopeFilter($query, array $filters)

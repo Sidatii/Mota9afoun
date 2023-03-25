@@ -1,4 +1,4 @@
-<html lang="en">
+<html lang="en" class="h-full bg-gray-100">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,7 @@
     <title>Mota9afoun</title>
     <script src="{{ asset('js/app.js') }}" defer></script>
 </head>
-<body>
+<body class="h-full">
 
 <header>
     <nav class="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
