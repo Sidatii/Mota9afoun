@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\UserController;
 use App\Http\Livewire\CreateCategory;
 use App\Http\Livewire\ShowCategories;
@@ -74,6 +75,12 @@ Route::group(['middleware' => ['auth', 'active_user']], function () {
     Route::post('/profile', [UserController::class, 'update']);
 // Block profile
     Route::put('/profile', [UserController::class, 'destroy']);
+// Show favorites by user
+    Route::get('/favorites', [FavoriteController::class, 'index']);
 // Add book to favorite
+    Route::post('/books/{book}/favorite', [FavoriteController::class, 'store']);
+// Remove book from favorite
+    Route::delete('/books/{book}/favorite', [FavoriteController::class, 'destroy']);
+
 
 });

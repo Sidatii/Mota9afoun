@@ -101,12 +101,14 @@
                                     class="w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500">
                                 Read
                             </button>
-                            <a href="#">
-                                <button type="button"
-                                        class="w-full bg-indigo-50 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-indigo-700 hover:bg-indigo-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500">
+                            <form action="/books/{{$books->id}}/favorite" method="POST">
+                                @csrf
+                                @method('POST')
+                                <button type="submit"
+                                        class="favorite w-full bg-indigo-50 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-indigo-700 hover:bg-indigo-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500">
                                     Add to favourites
                                 </button>
-                            </a>
+                            </form>
                         </div>
                     @endif
                 </div>

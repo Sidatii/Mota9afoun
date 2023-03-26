@@ -19,9 +19,9 @@ return new class extends Migration
             $table->year('published');
             $table->longText('description');
             $table->string('link');
-            $table->foreignId('category_id')->references('id')->on('category')->onUpdate('cascade')->onDelete('cascade');
             $table->string('tags');
             $table->archivedAt();
+            $table->foreignId('category_id')->references('id')->on('category')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
