@@ -6,6 +6,7 @@
     @vite(['resources/css/app.css','resources/js/app.js'])
     <title>Mota9afoun</title>
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.0/dist/cdn.min.js"></script>
 </head>
 <body class="h-full">
 
@@ -166,12 +167,16 @@
 
                         @endauth
                     </div>
+            </div>
+        </div>
     </nav>
+
 </header>
 {{-- Here we render our content/different pages --}}
 {{$slot}}
 <x-flash-message/>
 
-<script src="../path/to/flowbite/dist/flowbite.min.js"></script>
+<script src="../flowbite/dist/flowbite.min.js"></script>
+
 </body>
 </html>

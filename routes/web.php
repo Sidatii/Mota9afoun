@@ -3,6 +3,7 @@
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FavoriteController;
+use App\Http\Controllers\GroupController;
 use App\Http\Controllers\UserController;
 use App\Http\Livewire\CreateCategory;
 use App\Http\Livewire\ShowCategories;
@@ -81,6 +82,16 @@ Route::group(['middleware' => ['auth', 'active_user']], function () {
     Route::post('/books/{book}/favorite', [FavoriteController::class, 'store']);
 // Remove book from favorite
     Route::delete('/books/{book}/favorite', [FavoriteController::class, 'destroy']);
+// Show all groups
+    Route::get('/groups', [GroupController::class, 'index']);
+// Show single group
+    Route::get('/groups/{group}', [GroupController::class, 'show']);
+// Show create group form
+    Route::get('/groups/create', [GroupController::class, 'create']);
+// Store group
+    Route::post('/groups', [GroupController::class, 'store']);
+// Join group
+    Route::post('/groups/{group}/join', [GroupController::class, 'join']);
 
 
 });

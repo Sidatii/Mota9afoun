@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Comment;
+use App\Models\Group;
 use App\Models\User;
 use App\Models\Book;
 use App\Models\Category;
@@ -22,6 +24,13 @@ class DatabaseSeeder extends Seeder
         ]);
         Book::factory(5)->create([
             'category_id' => $category->id,
+        ]);
+        Comment::factory(5)->create([
+            'user_id' => User::factory(),
+            'group_id' => Group::factory(),
+        ]);
+        Group::factory(5)->create([
+            'owner' => User::factory(),
         ]);
     }
 }

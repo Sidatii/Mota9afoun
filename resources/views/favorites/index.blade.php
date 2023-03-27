@@ -35,7 +35,7 @@
                                         <div class="flex items-center">
                                             <div class="h-10 w-10 flex-shrink-0">
                                                 <img class="h-10 w-10 rounded-full"
-                                                     src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                                     src="{{$favorite->image ? asset('/storage/'.$favorite->image) : asset('/images/the.png')}}"
                                                      alt="">
                                             </div>
                                             <div class="ml-4">
@@ -52,11 +52,10 @@
                                     </td>
                                     <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$favorite->published}}</td>
                                     <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                                        <form action="/books/{{$favorite->book_id}}/favorite" method="POST">
+                                        <form action="/books/{{$favorite->book_id}}/favorite/" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="text-indigo-600 hover:text-indigo-900">Remove
-                                                from favorites
                                             </button>
                                         </form>
                                     </td>
