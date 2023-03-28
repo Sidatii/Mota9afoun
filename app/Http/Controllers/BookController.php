@@ -39,7 +39,7 @@ class BookController extends Controller
      */
     public function store(Request $request) : RedirectResponse
     {
-        dd($request->all());
+//        dd($request->all());
 
         $form = $request->validate([
             'name' => ['required', Rule::unique('book', 'name')],
@@ -57,7 +57,6 @@ class BookController extends Controller
         }
 
         Book::create($form);
-
         return redirect('/books')->with('success', 'Book added successfully!');
     }
 
@@ -120,6 +119,13 @@ class BookController extends Controller
     public function manage(){
         return view('books.manage', [
             'books' => Book::latest()->paginate(10),
+        ]);
+    }
+
+    public function read(Book $book): \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+    {
+        return view('books.read', [
+            'books' => $book
         ]);
     }
 }

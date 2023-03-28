@@ -48,14 +48,8 @@ Route::group(['middleware' => ['auth', 'active_user']], function () {
         Route::resource('books', BookController::class)->only(['store', 'edit', 'update', 'destroy']);
     // Show create book form
         Route::get('/book/create', [BookController::class, 'create']);
-//    // Store book
-//        Route::post('/books', [BookController::class, 'store']);
-//    // Show edit book form
-//        Route::get('/books/{book}/edit', [BookController::class, 'edit']);
-//    // Update book
-//        Route::put('/books/{book}', [BookController::class, 'update']);
-//    // Delete book
-//        Route::delete('/books/{book}', [BookController::class, 'destroy']);
+    // Read book
+        Route::get('/book/{book}/read', [BookController::class, 'read']);
     // Show all users
         Route::get('/users', [UserController::class, 'index']);
     });

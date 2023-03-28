@@ -1,7 +1,4 @@
 
-{{--@php--}}
-{{--dd($options);--}}
-{{--@endphp--}}
 
 <label for="{{$name}}" class="inline-block text-md mb-2"></label>
     {{$label}}

@@ -72,7 +72,7 @@
                     @enderror
                 </div>
 
-                <x-select name="category" label="Category" idc="{{$books->category_id}}" />
+                <x-select name="category_id" label="Category" />
 
                 <div class="mb-6">
                     <label for="description" class="inline-block text-md mb-2">

@@ -27,6 +27,8 @@ class Select extends Component
 
         }elseif ($name == 'author') {
             $this->options = Author::all();
+        }elseif ($name == 'category_id') {
+            $this->options = Category::all();
         }
     }
 
