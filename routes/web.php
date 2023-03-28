@@ -5,8 +5,6 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\GroupController;
 use App\Http\Controllers\UserController;
-use App\Http\Livewire\CreateCategory;
-use App\Http\Livewire\ShowCategories;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,40 +40,29 @@ Route::group(['middleware' => ['auth', 'active_user']], function () {
     Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 // Admin routes
     Route::group(['middleware' => ['admin']], function () {
-    // Show all categories
-        Route::get('/categories', [CategoryController::class, 'index']);
-    // Show create category form
-        Route::get('/categories/create', [CategoryController::class, 'create']);
-    // Store category
-        Route::post('/categories', [CategoryController::class, 'store']);
-    // Show edit category form
-        Route::get('/categories/{category}/edit', [CategoryController::class, 'edit']);
-    // Update category
-        Route::put('/categories/{category}', [CategoryController::class, 'update']);
-    // Delete category
-        Route::delete('/categories/{category}', [CategoryController::class, 'destroy']);
+
+    // Route resource for categories
+        Route::resource('categories', CategoryController::class);
+
+    // Route resource for books
+        Route::resource('books', BookController::class)->only(['store', 'edit', 'update', 'destroy']);
     // Show create book form
-        Route::get('/books/create', [BookController::class, 'create']);
-    // Store book
-        Route::post('/books', [BookController::class, 'store']);
-    // Show edit book form
-        Route::get('/books/{book}/edit', [BookController::class, 'edit']);
-    // Update book
-        Route::put('/books/{book}', [BookController::class, 'update']);
-    // Delete book
-        Route::delete('/books/{book}', [BookController::class, 'destroy']);
-    // Manage books
-        Route::get('/manage', [BookController::class, 'manage']);
+        Route::get('/book/create', [BookController::class, 'create']);
+//    // Store book
+//        Route::post('/books', [BookController::class, 'store']);
+//    // Show edit book form
+//        Route::get('/books/{book}/edit', [BookController::class, 'edit']);
+//    // Update book
+//        Route::put('/books/{book}', [BookController::class, 'update']);
+//    // Delete book
+//        Route::delete('/books/{book}', [BookController::class, 'destroy']);
     // Show all users
         Route::get('/users', [UserController::class, 'index']);
     });
 
-// Show profile
-    Route::get('/profile', [UserController::class, 'profile']);
-// Update profile
-    Route::post('/profile', [UserController::class, 'update']);
-// Block profile
-    Route::put('/profile', [UserController::class, 'destroy']);
+// Rout resource for profile
+    Route::resource('profile', UserController::class);
+
 // Show favorites by user
     Route::get('/favorites', [FavoriteController::class, 'index']);
 // Add book to favorite
@@ -83,13 +70,8 @@ Route::group(['middleware' => ['auth', 'active_user']], function () {
 // Remove book from favorite
     Route::delete('/books/{book}/favorite', [FavoriteController::class, 'destroy']);
 // Show all groups
-    Route::get('/groups', [GroupController::class, 'index']);
-// Show single group
-    Route::get('/groups/{group}', [GroupController::class, 'show']);
-// Show create group form
-    Route::get('/groups/create', [GroupController::class, 'create']);
-// Store group
-    Route::post('/groups', [GroupController::class, 'store']);
+// Rout resource for groups
+    Route::resource('groups', GroupController::class);
 // Join group
     Route::post('/groups/{group}/join', [GroupController::class, 'join']);
 

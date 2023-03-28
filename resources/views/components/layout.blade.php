@@ -174,7 +174,7 @@
 </header>
 {{-- Here we render our content/different pages --}}
 {{$slot}}
-<x-flash-message/>
+
 
 <script src="../flowbite/dist/flowbite.min.js"></script>
 

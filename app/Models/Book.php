@@ -37,6 +37,15 @@ class Book extends Model
         );
     }
 
+    public function filterByDate($query, array $filters)
+    {
+        $query->when($filters['date'] ?? false, fn($query, $filter) =>
+            $query->where(fn($query) =>
+                $query->where('published', 'like', '%' . request('date') . '%')
+            )
+        );
+    }
+
     // Relationship with Category model
     public function category(): BelongsTo
     {

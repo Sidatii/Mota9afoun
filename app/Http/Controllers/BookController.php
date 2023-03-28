@@ -39,7 +39,8 @@ class BookController extends Controller
      */
     public function store(Request $request) : RedirectResponse
     {
-//        dd($request->all());
+        dd($request->all());
+
         $form = $request->validate([
             'name' => ['required', Rule::unique('book', 'name')],
             'author' => 'required',
@@ -47,6 +48,7 @@ class BookController extends Controller
             'description' => 'required',
             'link' => 'required',
             'tags' => 'required',
+            'category_id' => 'required',
             'image' => 'required',
         ]);
 
