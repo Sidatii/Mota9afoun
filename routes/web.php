@@ -68,6 +68,10 @@ Route::group(['middleware' => ['auth', 'active_user']], function () {
     Route::resource('groups', GroupController::class);
 // Join group
     Route::post('/groups/{group}/join', [GroupController::class, 'join']);
+// Leave group
+//    Route::delete('/groups/{group}/leave', [GroupController::class, 'leave']);
+// Route resource for comments
+    Route::resource('comments', CommentController::class);
 
 
 });
