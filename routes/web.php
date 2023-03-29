@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\GroupController;
 use App\Http\Controllers\UserController;
@@ -69,7 +70,7 @@ Route::group(['middleware' => ['auth', 'active_user']], function () {
 // Join group
     Route::post('/groups/{group}/join', [GroupController::class, 'join']);
 // Leave group
-//    Route::delete('/groups/{group}/leave', [GroupController::class, 'leave']);
+    Route::delete('/groups/{group}/leave', [GroupController::class, 'leave']);
 // Route resource for comments
     Route::resource('comments', CommentController::class);
 

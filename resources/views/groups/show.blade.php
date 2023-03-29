@@ -23,6 +23,29 @@
                         </svg>
                     </div>
                     <div class="ml-2 font-bold text-2xl">{{$group->name}}</div>
+{{--                    Leave group button--}}
+                    <form action="/groups/{{$group->id}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button
+                            class="flex items-center justify-center text-gray-400 hover:text-gray-600 ml-4"
+                        >
+                            <svg
+                                class="w-5 h-5"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M6 18L18 6M6 6l12 12"
+                                ></path>
+                            </svg>
+                        </button>
+                    </form>
                 </div>
                 <div class="flex flex-col mt-8">
                     <div class="flex flex-row items-center justify-between text-xs">
@@ -32,7 +55,8 @@
                         @foreach($members as $member)
                             <button
                                 class="flex flex-row items-center hover:bg-gray-100 rounded-xl p-2">
-                                <span class="flex items-center justify-center h-8 w-8 bg-indigo-200 rounded-full"></span>
+                                <span
+                                    class="flex items-center justify-center h-8 w-8 bg-indigo-200 rounded-full"></span>
                                 <div class="ml-2 text-sm font-semibold">{{$member->name}}</div>
                             </button>
                         @endforeach
@@ -83,53 +107,80 @@
                             </div>
                         </div>
                     </div>
-                    <div
+                    <form action="/comments" method="POST"
                         class="flex flex-row items-center h-16 rounded-xl bg-white w-full px-4">
-                        <form action="/comments" method="POST" class="flex-grow ml-4">
-                            @csrf
-                            @method('POST')
-                            <input name="body" type="text" class="flex w-full border rounded-xl focus:outline-none focus:border-indigo-300 pl-4 h-10"/>
-                            <button type="submit"
-                                    class="absolute flex items-center justify-center h-full w-12 right-0 top-0 text-gray-400 hover:text-gray-600">
+                        @csrf
+                        @method('POST')
+                        <div>
+                            <button
+                                class="flex items-center justify-center text-gray-400 hover:text-gray-600"
+                            >
                                 <svg
-                                    class="w-6 h-6"
+                                    class="w-5 h-5"
                                     fill="none"
                                     stroke="currentColor"
                                     viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg">
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
                                     <path
                                         stroke-linecap="round"
                                         stroke-linejoin="round"
                                         stroke-width="2"
-                                        d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                                        d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"
                                     ></path>
                                 </svg>
                             </button>
-                        </form>
+                        </div>
+                        <div class="flex-grow ml-4">
+                            <div class="relative w-full">
+                                <input type="hidden" value="{{$group->id}}" name="group_id">
+                                <input name="body"
+                                    type="text"
+                                    class="flex w-full border rounded-xl focus:outline-none focus:border-indigo-300 pl-4 h-10"
+                                />
+                                <button
+                                    class="absolute flex items-center justify-center h-full w-12 right-0 top-0 text-gray-400 hover:text-gray-600"
+                                >
+                                    <svg
+                                        class="w-6 h-6"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                                        ></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
                         <div class="ml-4">
-                            <button
+                            <button type="submit"
                                 class="flex items-center justify-center bg-indigo-500 hover:bg-indigo-600 rounded-xl text-white px-4 py-1 flex-shrink-0"
                             >
                                 <span>Send</span>
                                 <span class="ml-2">
-                  <svg
-                      class="w-4 h-4 transform rotate-45 -mt-px"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
-                    ></path>
-                  </svg>
-                </span>
+                                    <svg
+                                        class="w-4 h-4 transform rotate-45 -mt-px"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8">
+                                        </path>
+                                    </svg>
+                                </span>
                             </button>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>

@@ -27,7 +27,7 @@
                    class="relative inline-block px-1 text-base font-bold text-black uppercase transition duration-150 ease hover:text-gray-900">
                     <span class="block">Books</span>
                 </a>
-                <a href="groups" x-data="{ hover: false }" @mouseenter="hover = true" @mouseleave="hover = false"
+                <a href="/groups" x-data="{ hover: false }" @mouseenter="hover = true" @mouseleave="hover = false"
                    class="relative inline-block px-1 text-base font-bold text-black uppercase transition duration-150 ease hover:text-gray-900">
                     <span class="block">Groups</span>
                 </a>
@@ -172,8 +172,60 @@
     </nav>
 
 </header>
+<div class="w-full flex justify-center">
+<x-flash-message/>
+</div>
 {{-- Here we render our content/different pages --}}
 {{$slot}}
+<footer class="bg-gray-100 dark:bg-gray-800">
+    <div class="max-w-7xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
+        <nav class="-mx-5 -my-2 flex flex-wrap justify-center" aria-label="Footer">
+            <div class="px-5 py-2">
+                <a href="#" class="text-base text-gray-500 hover:text-gray-900">
+                    About
+                </a>
+            </div>
+
+            <div class="px-5 py-2">
+                <a href="#" class="text-base text-gray-500 hover:text-gray-900">
+                    Blog
+                </a>
+            </div>
+
+            <div class="px-5 py-2">
+                <a href="#" class="text-base text-gray-500 hover:text-gray-900">
+                    Jobs
+                </a>
+            </div>
+
+            <div class="px-5 py-2">
+                <a href="#" class="text-base text-gray-500 hover:text-gray-900">
+                    Press
+                </a>
+            </div>
+
+            <div class="px-5 py-2">
+                <a href="#" class="text-base text-gray-500 hover:text-gray-900">
+                    Privacy
+                </a>
+            </div>
+
+            <div class="px-5 py-2">
+                <a href="#" class="text-base text-gray-500 hover:text-gray-900">
+                    Terms
+                </a>
+            </div>
+
+            <div class="px-5 py-2">
+                <a href="#" class="text-base text-gray-500 hover:text-gray-900">
+                    Contact
+                </a>
+            </div>
+        </nav>
+        <p class="mt-8 text-center text-base text-gray-400">
+            &copy; 2021 Bookshelf, Inc. All rights reserved.
+        </p>
+    </div>
 
 
 <script src="../flowbite/dist/flowbite.min.js"></script>
